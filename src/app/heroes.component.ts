@@ -57,8 +57,7 @@ import { Hero } from './hero'
       margin-right: .8em;
       border-radius: 4px 0 0 4px;
     }
-    `],
-  providers: [HeroService]
+    `]
 })
 
 export class HeroesComponent implements OnInit {
