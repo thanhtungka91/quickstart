@@ -5,17 +5,20 @@ import { HeroService } from './hero.service';
 import { Hero } from './hero'
 // create constant variable -> for bindling
 
+import { Router } from '@angular/router';
 @Component({
   selector: 'my-heroes',
   // create for hear
-  templateUrl: 'app/templates/app.html',
+  templateUrl: 'app/templates/heroes.component.html',
   styleUrls: ['app/public/heroes.component.css'],
 })
 
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private router: Router,
+    private heroService: HeroService) { }
 
   getHeroes(): void {
     this.heroService.getHeroes().then(heroes => this.heroes = heroes);
@@ -27,5 +30,8 @@ export class HeroesComponent implements OnInit {
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+  gotoDetail(): void {
+    this.router.navigate(['/detail', this.selectedHero.id]);
   }
 }
