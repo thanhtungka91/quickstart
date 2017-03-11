@@ -3,7 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Hero, HeroService }  from './hero.service';
+import {  HeroService }  from './hero.service';
+import { Hero }  from './mock-heroes';
 
 @Component({
   selector: 'my-heroes',
