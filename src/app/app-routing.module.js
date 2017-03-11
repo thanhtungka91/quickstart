@@ -10,22 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var dashboard_component_1 = require('./dashboard.component');
-var heroes_component_1 = require('./heroes/heroes.component');
-var hero_detail_component_1 = require('./heroes/hero-detail.component');
-var routes = [
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+var dashboard_component_1 = require("./dashboard.component");
+var appRoutes = [
+    { path: '', redirectTo: '/heroes', pathMatch: 'full' },
     { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
-    { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent },
-    { path: 'heroes', component: heroes_component_1.HeroesComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
         core_1.NgModule({
-            imports: [router_1.RouterModule.forRoot(routes)],
-            exports: [router_1.RouterModule]
+            imports: [
+                router_1.RouterModule.forRoot(appRoutes)
+            ],
+            exports: [
+                router_1.RouterModule
+            ],
+            providers: []
         }), 
         __metadata('design:paramtypes', [])
     ], AppRoutingModule);
