@@ -1,16 +1,23 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes"
-      [class.selected]="hero === selectedHero"
+  <li *ngFor="let hero of heroes | async"
+      [class.selected]="isSelected(hero)"
       (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <span class="badge">{{ hero.id }}</span> {{ hero.name }}
   </li>
 </ul>
 
-<!--<my-hero-detail [hero]="selectedHero"></my-hero-detail>-->
 <div *ngIf="selectedHero">
   <h2>
     {{selectedHero.name | uppercase}} is my hero
   </h2>
-  <button (click)="gotoDetail()">View Details</button>
+  <button (click)="gotoDetail2()">View Details</button>
 </div>
+
+
+<!--<li *ngFor="let hero of heroes"-->
+    <!--[class.selected]="hero === selectedHero"-->
+    <!--[class.selected]="isSelected(hero)"-->
+    <!--(click)="onSelect(hero)">-->
+  <!--<span class="badge">{{hero.id}}</span> {{hero.name}}-->
+<!--</li>-->
