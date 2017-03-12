@@ -9,36 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
+var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
-var app_component_1 = require('./app.component');
-var hero_service_1 = require('./heroes/hero.service');
-var dashboard_component_1 = require('./dashboard.component');
-var app_routing_module_1 = require('./app-routing.module');
-var heroes_module_1 = require('../app/heroes/heroes.module');
-var AppModule = (function () {
-    function AppModule() {
+var http_component_1 = require('./http.component');
+var http_routing_module_1 = require('./http-routing.module');
+var HttpModule = (function () {
+    function HttpModule() {
     }
-    AppModule = __decorate([
+    HttpModule = __decorate([
         core_1.NgModule({
             imports: [
-                platform_browser_1.BrowserModule,
+                common_1.CommonModule,
                 forms_1.FormsModule,
-                heroes_module_1.HeroesModule,
-                app_routing_module_1.AppRoutingModule
+                http_routing_module_1.HttpRoutingModule
             ],
             declarations: [
-                app_component_1.AppComponent,
-                dashboard_component_1.DashboardComponent
-            ],
-            providers: [
-                hero_service_1.HeroService
-            ],
-            bootstrap: [app_component_1.AppComponent]
+                http_component_1.HttpComponent
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], HttpModule);
+    return HttpModule;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.HttpModule = HttpModule;
+//# sourceMappingURL=http.module.js.map

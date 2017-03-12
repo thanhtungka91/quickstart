@@ -6,7 +6,7 @@ import { HeroService }         from './heroes/hero.service';
 import { DashboardComponent } from './dashboard.component';
 import { AppRoutingModule } from './app-routing.module'
 
-import { HeroesModule } from 'app/heroes/heroes.module'
+import { HeroesModule } from '../app/heroes/heroes.module'
 @NgModule({
   imports: [
     BrowserModule,
