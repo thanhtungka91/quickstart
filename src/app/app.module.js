@@ -16,6 +16,7 @@ var hero_service_1 = require('./heroes/hero.service');
 var dashboard_component_1 = require('./dashboard.component');
 var app_routing_module_1 = require('./app-routing.module');
 var heroes_module_1 = require('../app/heroes/heroes.module');
+var http_1 = require('@angular/http');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,6 +26,7 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 heroes_module_1.HeroesModule,
+                http_1.HttpModule,
                 app_routing_module_1.AppRoutingModule
             ],
             declarations: [
