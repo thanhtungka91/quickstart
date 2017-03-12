@@ -13,6 +13,7 @@ var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
 var http_component_1 = require('./http.component');
 var http_routing_module_1 = require('./http-routing.module');
+var http_api_services_1 = require("./http-api.services");
 var HttpApiModule = (function () {
     function HttpApiModule() {
     }
@@ -25,7 +26,8 @@ var HttpApiModule = (function () {
             ],
             declarations: [
                 http_component_1.HttpComponent
-            ]
+            ],
+            providers: [http_api_services_1.HeroService]
         }), 
         __metadata('design:paramtypes', [])
     ], HttpApiModule);

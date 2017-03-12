@@ -11,7 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
-var rxjs_1 = require("rxjs");
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/map');
+var Rx_1 = require('rxjs/Rx');
 // interface for Category
 var Hero = (function () {
     function Hero() {
@@ -19,33 +21,21 @@ var Hero = (function () {
     return Hero;
 }());
 exports.Hero = Hero;
-// data temp
-exports.HEROES = [
-    { id: 11, name: 'Mr. Nice' },
-    { id: 12, name: 'Narco' },
-    { id: 13, name: 'Bombasto' },
-    { id: 14, name: 'Celeritas' },
-    { id: 15, name: 'Magneta' },
-    { id: 16, name: 'RubberMan' },
-    { id: 17, name: 'Dynama' },
-    { id: 18, name: 'Dr IQ' },
-    { id: 19, name: 'Magma' },
-    { id: 20, name: 'Tornado' }
-];
-// here is service use Injectable
-// khong hieu duoc ban chat la eo code duoc dau
 var HeroService = (function () {
     // URL to web API
     function HeroService(http) {
         this.http = http;
-        this.heroesUrl = 'app/heroes';
+        this.heroesUrl = 'http://localhost:8080/api/categories';
     }
     HeroService.prototype.getHeroes = function () {
+        // debugger;
+        // alert(this.heroesUrl);
         return this.http.get(this.heroesUrl)
             .map(this.extractData)
             .catch(this.handleError);
     };
     HeroService.prototype.extractData = function (res) {
+        alert("it seems to be good");
         var body = res.json();
         return body.data || {};
     };
@@ -61,7 +51,7 @@ var HeroService = (function () {
             errMsg = error.message ? error.message : error.toString();
         }
         console.error(errMsg);
-        return rxjs_1.Observable.throw(errMsg);
+        return Rx_1.Observable.throw(errMsg);
     };
     HeroService = __decorate([
         core_1.Injectable(), 

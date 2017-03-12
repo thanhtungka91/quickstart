@@ -1,44 +1,35 @@
 import { Injectable } from '@angular/core'
 import {Headers, Http, Response} from '@angular/http'
 import 'rxjs/add/operator/toPromise';
-import {Observable} from "rxjs";
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Rx';
+
 
 // interface for Category
 export class Hero {
   id: number;
   name: string;
 }
-// data temp
-export const HEROES: Hero[] = [
-  { id: 11, name: 'Mr. Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
-];
-
-// here is service use Injectable
-// khong hieu duoc ban chat la eo code duoc dau
 
 @Injectable()
 export class HeroService {
 
-  private heroesUrl = 'app/heroes';
+  private heroesUrl =  'http://localhost:8080/api/categories';
   // URL to web API
   constructor (private http: Http) {}
 
   getHeroes (): Observable<Hero[]> {
+    // debugger;
+    // alert(this.heroesUrl);
     return this.http.get(this.heroesUrl)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   private extractData(res: Response) {
+    alert("it seems to be good");
     let body = res.json();
     return body.data || { };
   }

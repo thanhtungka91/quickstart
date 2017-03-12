@@ -2,33 +2,44 @@ import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
-
+import { HeroService } from './http-api.services'
+import { Hero } from './http-api.services'
 @Component({
   selector: 'my-heroes',
   templateUrl: 'app/templates/http.component.html',
   styleUrls: ['app/public/heroes.component.css'],
 })
+
 export class HttpComponent implements OnInit {
-  // heroes: Observable<Hero[]>;
+  title = 'Tour of Heroes';
+  heroes: Hero[];
+  selectedHero: Hero;
 
-  private selectedId: number;
+  errorMessage: string;
+  heroes: Hero[];
+  mode = 'Observable';
 
-  constructor(
-    // private service: HeroService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private heroService: HeroService) { }
 
-  ngOnInit() {
+  getHeroes() {
+    this.heroService.getHeroes()
+      .subscribe(
+        heroes => this.heroes = heroes,
+        error =>  this.errorMessage = <any>error);
   }
-
-  // isSelected(hero: Hero) {
-  //   return hero.id === this.selectedId;
+  // addHero (name: string) {
+  //   if (!name) { return; }
+  //   this.heroService.addHero(name)
+  //     .subscribe(
+  //       hero  => this.heroes.push(hero),
+  //       error =>  this.errorMessage = <any>error);
   // }
 
-  // onSelect(hero: Hero) {
-  //   this.router.navigate(['/detail', hero.id]);
+  ngOnInit() { this.getHeroes(); }
+
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
   // }
 }
+
 
