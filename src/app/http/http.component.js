@@ -23,7 +23,7 @@ var HttpComponent = (function () {
     HttpComponent = __decorate([
         core_1.Component({
             selector: 'my-heroes',
-            templateUrl: 'app/templates/heroes.component.html',
+            templateUrl: 'app/templates/http.component.html',
             styleUrls: ['app/public/heroes.component.css'],
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])

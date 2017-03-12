@@ -6,7 +6,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'my-heroes',
-  templateUrl: 'app/templates/heroes.component.html',
+  templateUrl: 'app/templates/http.component.html',
   styleUrls: ['app/public/heroes.component.css'],
 })
 export class HttpComponent implements OnInit {

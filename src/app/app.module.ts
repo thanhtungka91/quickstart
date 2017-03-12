@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from '../app/heroes/heroes.module';
 import { HttpModule }    from '@angular/http';
+import {HttpApiModule} from "./http/http.module";
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { HttpModule }    from '@angular/http';
     FormsModule,
     HeroesModule,
     HttpModule,
+    HttpApiModule,
     AppRoutingModule
   ],
   declarations: [

@@ -17,4 +17,4 @@ import { HttpRoutingModule } from './http-routing.module';
   ]
   // providers: [ HeroService ]
 })
-export class HttpModule {}
+export class HttpApiModule {}
