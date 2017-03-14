@@ -9,7 +9,8 @@ import { Router } from '@angular/router'
 
 @Component({
   selector: 'my-hero-detail',
-  templateUrl: 'app/templates/hero-detail.component.html'
+  templateUrl: 'app/templates/hero-detail.component.html',
+  styleUrls: ['app/public/hero-detail.component.css'],
 })
 
 export class HeroDetailComponent implements OnInit {

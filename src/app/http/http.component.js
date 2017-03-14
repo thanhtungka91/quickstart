@@ -10,23 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 require('rxjs/add/operator/switchMap');
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
+var http_api_services_1 = require("./http-api.services");
 var HttpComponent = (function () {
-    function HttpComponent(
-        // private service: HeroService,
-        route, router) {
-        this.route = route;
-        this.router = router;
+    function HttpComponent(httpTest) {
+        this.httpTest = httpTest;
+        this.title = 'Tour of Heroes';
     }
-    HttpComponent.prototype.ngOnInit = function () {
+    HttpComponent.prototype.onTestGet = function () {
+        var _this = this;
+        this.httpTest.getCurrentTime()
+            .subscribe(function (data) { return _this.getData = JSON.stringify(data); }, function (error) { return _this.errorMessage = error; });
     };
     HttpComponent = __decorate([
         core_1.Component({
-            selector: 'my-heroes',
-            templateUrl: 'app/templates/heroes.component.html',
+            templateUrl: 'app/templates/http.component.html',
             styleUrls: ['app/public/heroes.component.css'],
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
+        __metadata('design:paramtypes', [http_api_services_1.HTTPTestService])
     ], HttpComponent);
     return HttpComponent;
 }());

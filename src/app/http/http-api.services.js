@@ -9,22 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var http_component_1 = require('./http.component');
-var heroesroutes = [
-    { path: 'httpApi', component: http_component_1.HttpComponent }
-];
-var HttpRoutingModule = (function () {
-    function HttpRoutingModule() {
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/toPromise');
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/map');
+var HTTPTestService = (function () {
+    function HTTPTestService(http_test) {
+        this.http_test = http_test;
+        // get current time
+        this.httpUrl = "http://date.jsontest.com";
     }
-    HttpRoutingModule = __decorate([
-        core_1.NgModule({
-            imports: [router_1.RouterModule.forChild(heroesroutes)],
-            exports: [router_1.RouterModule]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], HttpRoutingModule);
-    return HttpRoutingModule;
+    HTTPTestService.prototype.getCurrentTime = function () {
+        return this.http_test.get(this.httpUrl)
+            .map(function (res) { return res.json(); });
+    };
+    HTTPTestService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], HTTPTestService);
+    return HTTPTestService;
 }());
-exports.HttpRoutingModule = HttpRoutingModule;
-//# sourceMappingURL=http-routing.module.js.map
+exports.HTTPTestService = HTTPTestService;
+//# sourceMappingURL=http-api.services.js.map
