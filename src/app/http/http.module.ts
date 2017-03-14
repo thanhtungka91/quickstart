@@ -5,7 +5,7 @@ import { FormsModule }    from '@angular/forms';
 import { HttpComponent }    from './http.component';
 
 import { HttpRoutingModule } from './http-routing.module';
-import {HeroService} from "./http-api.services";
+import { HTTPTestService } from "./http-api.services";
 
 @NgModule({
   imports: [
@@ -16,6 +16,6 @@ import {HeroService} from "./http-api.services";
   declarations: [
     HttpComponent
   ],
-  providers: [ HeroService ]
+  providers: [ HTTPTestService ]
 })
 export class HttpApiModule {}

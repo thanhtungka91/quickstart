@@ -27,7 +27,7 @@ var HttpApiModule = (function () {
             declarations: [
                 http_component_1.HttpComponent
             ],
-            providers: [http_api_services_1.HeroService]
+            providers: [http_api_services_1.HTTPTestService]
         }), 
         __metadata('design:paramtypes', [])
     ], HttpApiModule);

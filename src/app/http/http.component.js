@@ -10,33 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 require('rxjs/add/operator/switchMap');
 var core_1 = require('@angular/core');
-var http_api_services_1 = require('./http-api.services');
+var http_api_services_1 = require("./http-api.services");
 var HttpComponent = (function () {
-    function HttpComponent(heroService) {
-        this.heroService = heroService;
+    function HttpComponent(httpTest) {
+        this.httpTest = httpTest;
         this.title = 'Tour of Heroes';
-        this.mode = 'Observable';
     }
-    HttpComponent.prototype.getHeroes = function () {
+    HttpComponent.prototype.onTestGet = function () {
         var _this = this;
-        this.heroService.getHeroes()
-            .subscribe(function (heroes) { return _this.heroes = heroes; }, function (error) { return _this.errorMessage = error; });
+        this.httpTest.getCurrentTime()
+            .subscribe(function (data) { return _this.getData = JSON.stringify(data); }, function (error) { return _this.errorMessage = error; });
     };
-    // addHero (name: string) {
-    //   if (!name) { return; }
-    //   this.heroService.addHero(name)
-    //     .subscribe(
-    //       hero  => this.heroes.push(hero),
-    //       error =>  this.errorMessage = <any>error);
-    // }
-    HttpComponent.prototype.ngOnInit = function () { this.getHeroes(); };
     HttpComponent = __decorate([
         core_1.Component({
-            selector: 'my-heroes',
             templateUrl: 'app/templates/http.component.html',
             styleUrls: ['app/public/heroes.component.css'],
         }), 
-        __metadata('design:paramtypes', [http_api_services_1.HeroService])
+        __metadata('design:paramtypes', [http_api_services_1.HTTPTestService])
     ], HttpComponent);
     return HttpComponent;
 }());

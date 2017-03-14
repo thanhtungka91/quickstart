@@ -1,45 +1,26 @@
 import 'rxjs/add/operator/switchMap';
-import { Observable } from 'rxjs/Observable';
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { HeroService } from './http-api.services'
-import { Hero } from './http-api.services'
+import { Component} from '@angular/core';
+import {HTTPTestService} from "./http-api.services";
+
 @Component({
-  selector: 'my-heroes',
   templateUrl: 'app/templates/http.component.html',
   styleUrls: ['app/public/heroes.component.css'],
 })
 
-export class HttpComponent implements OnInit {
+export class HttpComponent {
   title = 'Tour of Heroes';
-  heroes: Hero[];
-  selectedHero: Hero;
 
   errorMessage: string;
-  heroes: Hero[];
-  mode = 'Observable';
+  getData: string;
 
-  constructor(private heroService: HeroService) { }
+  constructor(private httpTest: HTTPTestService) { }
 
-  getHeroes() {
-    this.heroService.getHeroes()
+  onTestGet() {
+    this.httpTest.getCurrentTime()
       .subscribe(
-        heroes => this.heroes = heroes,
+        data => this.getData = JSON.stringify(data),
         error =>  this.errorMessage = <any>error);
   }
-  // addHero (name: string) {
-  //   if (!name) { return; }
-  //   this.heroService.addHero(name)
-  //     .subscribe(
-  //       hero  => this.heroes.push(hero),
-  //       error =>  this.errorMessage = <any>error);
-  // }
-
-  ngOnInit() { this.getHeroes(); }
-
-  // onSelect(hero: Hero): void {
-  //   this.selectedHero = hero;
-  // }
 }
 
 

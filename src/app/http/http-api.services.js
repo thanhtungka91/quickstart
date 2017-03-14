@@ -13,51 +13,21 @@ var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/catch');
 require('rxjs/add/operator/map');
-var Rx_1 = require('rxjs/Rx');
-// interface for Category
-var Hero = (function () {
-    function Hero() {
+var HTTPTestService = (function () {
+    function HTTPTestService(http_test) {
+        this.http_test = http_test;
+        // get current time
+        this.httpUrl = "http://date.jsontest.com";
     }
-    return Hero;
-}());
-exports.Hero = Hero;
-var HeroService = (function () {
-    // URL to web API
-    function HeroService(http) {
-        this.http = http;
-        this.heroesUrl = 'http://localhost:8080/api/categories';
-    }
-    HeroService.prototype.getHeroes = function () {
-        // debugger;
-        // alert(this.heroesUrl);
-        return this.http.get(this.heroesUrl)
-            .map(this.extractData)
-            .catch(this.handleError);
+    HTTPTestService.prototype.getCurrentTime = function () {
+        return this.http_test.get(this.httpUrl)
+            .map(function (res) { return res.json(); });
     };
-    HeroService.prototype.extractData = function (res) {
-        alert("it seems to be good");
-        var body = res.json();
-        return body.data || {};
-    };
-    HeroService.prototype.handleError = function (error) {
-        // In a real world app, you might use a remote logging infrastructure
-        var errMsg;
-        if (error instanceof http_1.Response) {
-            var body = error.json() || '';
-            var err = body.error || JSON.stringify(body);
-            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
-        }
-        else {
-            errMsg = error.message ? error.message : error.toString();
-        }
-        console.error(errMsg);
-        return Rx_1.Observable.throw(errMsg);
-    };
-    HeroService = __decorate([
+    HTTPTestService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], HeroService);
-    return HeroService;
+    ], HTTPTestService);
+    return HTTPTestService;
 }());
-exports.HeroService = HeroService;
+exports.HTTPTestService = HTTPTestService;
 //# sourceMappingURL=http-api.services.js.map
