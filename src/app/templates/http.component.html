@@ -1,7 +1,17 @@
-<h1>{{title}}</h1>
-<h2>My Heroes</h2>
 <ul class="heroes">
-  <button (click)="onTestGet()">TestGet</button>
-  <p>{{getData}}</p>
+  <div *ngIf="getData">
+    <div *ngIf="getData.result">
+      get sucess api
+      <div *ngFor="let category of getData.categories ">
+        <li>
+          name : {{category.name}}
+        </li>
+        <li>
+          name ruby:  {{category.name_ruby}}
+        </li>
+      </div>
+    </div>
+  </div>
+
 </ul>
 

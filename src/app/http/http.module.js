@@ -14,14 +14,16 @@ var forms_1 = require('@angular/forms');
 var http_component_1 = require('./http.component');
 var http_routing_module_1 = require('./http-routing.module');
 var http_api_services_1 = require("./http-api.services");
+var platform_browser_1 = require("@angular/platform-browser");
 var HttpApiModule = (function () {
     function HttpApiModule() {
     }
     HttpApiModule = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule,
+                platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
+                common_1.CommonModule,
                 http_routing_module_1.HttpRoutingModule
             ],
             declarations: [

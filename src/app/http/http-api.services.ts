@@ -3,7 +3,8 @@ import {Headers, Http, Response} from '@angular/http'
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs/Rx';
+import { Category} from '../models/category'
+
 
 
 
@@ -14,7 +15,7 @@ export class HTTPTestService {
   }
   // get current time
 
-  private httpUrl = "http://date.jsontest.com";
+  private httpUrl = "http://localhost:8080/api/categories";
 
   getCurrentTime(){
     return this.http_test.get(this.httpUrl)

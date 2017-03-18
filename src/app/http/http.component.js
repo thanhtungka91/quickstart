@@ -16,10 +16,13 @@ var HttpComponent = (function () {
         this.httpTest = httpTest;
         this.title = 'Tour of Heroes';
     }
+    HttpComponent.prototype.ngOnInit = function () {
+        this.onTestGet();
+    };
     HttpComponent.prototype.onTestGet = function () {
         var _this = this;
         this.httpTest.getCurrentTime()
-            .subscribe(function (data) { return _this.getData = JSON.stringify(data); }, function (error) { return _this.errorMessage = error; });
+            .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
     };
     HttpComponent = __decorate([
         core_1.Component({

@@ -17,7 +17,7 @@ var HTTPTestService = (function () {
     function HTTPTestService(http_test) {
         this.http_test = http_test;
         // get current time
-        this.httpUrl = "http://date.jsontest.com";
+        this.httpUrl = "http://localhost:8080/api/categories";
     }
     HTTPTestService.prototype.getCurrentTime = function () {
         return this.http_test.get(this.httpUrl)
