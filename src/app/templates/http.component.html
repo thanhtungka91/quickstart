@@ -8,10 +8,18 @@
         </li>
         <li>
           name ruby:  {{category.name_ruby}}
+        </li><li>
+          name ruby:  {{category._id}}
         </li>
+        <button class="btn btn-danger" (click)="deleteCategory(category._id)">
+            Delete Category here {{category.id}}
+        </button>
+
       </div>
     </div>
   </div>
-
+  <button class="btn btn-info" (click)="postCategory()">
+    Post Data to API
+  </button>
 </ul>
 

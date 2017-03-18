@@ -24,6 +24,18 @@ var HttpComponent = (function () {
         this.httpTest.getCurrentTime()
             .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
     };
+    HttpComponent.prototype.postCategory = function () {
+        var _this = this;
+        this.httpTest.postCategory()
+            .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
+    };
+    // delete need to update in list -> take later
+    HttpComponent.prototype.deleteCategory = function (id) {
+        var _this = this;
+        // debugger;
+        this.httpTest.deleteCateory(id)
+            .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
+    };
     HttpComponent = __decorate([
         core_1.Component({
             templateUrl: 'app/templates/http.component.html',

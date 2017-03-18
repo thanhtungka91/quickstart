@@ -23,6 +23,24 @@ var HTTPTestService = (function () {
         return this.http_test.get(this.httpUrl)
             .map(function (res) { return res.json(); });
     };
+    HTTPTestService.prototype.postCategory = function () {
+        // create temp category object
+        var category = JSON.stringify({
+            "name": "testfromAngular",
+            "name_ruby": "ruby is great"
+        });
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http_test.post(this.httpUrl, category, options)
+            .map(function (res) { return res.json(); });
+        //   .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    };
+    HTTPTestService.prototype.deleteCateory = function (id) {
+        debugger;
+        var deleteUrl = this.httpUrl + '/' + id;
+        return this.http_test.delete(deleteUrl)
+            .map(function (res) { return res.json(); });
+    };
     HTTPTestService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
