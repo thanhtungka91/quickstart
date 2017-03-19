@@ -19,16 +19,13 @@ var HTTPTestService = (function () {
         // get current time
         this.httpUrl = "http://localhost:8080/api/categories";
     }
-    HTTPTestService.prototype.getCurrentTime = function () {
+    HTTPTestService.prototype.getCategories = function () {
         return this.http_test.get(this.httpUrl)
             .map(function (res) { return res.json(); });
     };
-    HTTPTestService.prototype.postCategory = function () {
+    HTTPTestService.prototype.postCategory = function (body) {
         // create temp category object
-        var category = JSON.stringify({
-            "name": "testfromAngular",
-            "name_ruby": "ruby is great"
-        });
+        var category = JSON.stringify(body);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http_test.post(this.httpUrl, category, options)

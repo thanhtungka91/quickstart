@@ -1,7 +1,6 @@
 export class Category {
   constructor(
-    public time: string,
-    public milliseconds_since_epoch: string,
-    public date: string
+    public name: string,
+    public name_ruby: string
   ){}
 }

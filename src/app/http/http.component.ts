@@ -5,7 +5,7 @@ import { Category} from '../models/category';
 
 @Component({
   templateUrl: 'app/templates/http.component.html',
-  styleUrls: ['app/public/heroes.component.css'],
+  styleUrls: ['app/public/http.component.css'],
 })
 
 
@@ -18,19 +18,23 @@ export class HttpComponent implements OnInit{
 
   constructor(private httpTest: HTTPTestService) { }
 
+  private model = new Category('','');
+  private editing = false;
+
   ngOnInit(){
-    this.onTestGet();
+    this.getCategories();
   }
 
-  onTestGet() {
-    this.httpTest.getCurrentTime()
+  getCategories() {
+    this.httpTest.getCategories()
       .subscribe(
         data => this.getData = data,
         error =>  this.errorMessage = <any>error);
   }
 
   postCategory(){
-    this.httpTest.postCategory()
+    debugger;
+    this.httpTest.postCategory(this.model)
       .subscribe(
       data => this.getData = data,
       error =>  this.errorMessage = <any>error);

@@ -11,22 +11,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 require('rxjs/add/operator/switchMap');
 var core_1 = require('@angular/core');
 var http_api_services_1 = require("./http-api.services");
+var category_1 = require('../models/category');
 var HttpComponent = (function () {
     function HttpComponent(httpTest) {
         this.httpTest = httpTest;
         this.title = 'Tour of Heroes';
+        this.model = new category_1.Category('', '');
+        this.editing = false;
     }
     HttpComponent.prototype.ngOnInit = function () {
-        this.onTestGet();
+        this.getCategories();
     };
-    HttpComponent.prototype.onTestGet = function () {
+    HttpComponent.prototype.getCategories = function () {
         var _this = this;
-        this.httpTest.getCurrentTime()
+        this.httpTest.getCategories()
             .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
     };
     HttpComponent.prototype.postCategory = function () {
         var _this = this;
-        this.httpTest.postCategory()
+        debugger;
+        this.httpTest.postCategory(this.model)
             .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
     };
     // delete need to update in list -> take later
@@ -39,7 +43,7 @@ var HttpComponent = (function () {
     HttpComponent = __decorate([
         core_1.Component({
             templateUrl: 'app/templates/http.component.html',
-            styleUrls: ['app/public/heroes.component.css'],
+            styleUrls: ['app/public/http.component.css'],
         }), 
         __metadata('design:paramtypes', [http_api_services_1.HTTPTestService])
     ], HttpComponent);

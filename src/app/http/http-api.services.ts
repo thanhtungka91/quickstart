@@ -16,17 +16,14 @@ export class HTTPTestService {
 
   private httpUrl = "http://localhost:8080/api/categories";
 
-  getCurrentTime(){
+  getCategories(){
     return this.http_test.get(this.httpUrl)
       .map(res => res.json());
   }
 
-  postCategory(){
+  postCategory(body:Object){
     // create temp category object
-    let category = JSON.stringify({
-      "name" : "testfromAngular",
-      "name_ruby" : "ruby is great"
-    });
+    let category = JSON.stringify(body);
 
     let headers      = new Headers({ 'Content-Type': 'application/json' });
     let options       = new RequestOptions({ headers: headers });

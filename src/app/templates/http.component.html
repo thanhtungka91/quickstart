@@ -1,4 +1,22 @@
 <ul class="heroes">
+  <!--form create new category-->
+  <div class="card-body">
+    <form (ngSubmit)="postCategory()">
+      <div class="form-group">
+        <div class="input-group">
+          <span id="name"></span>
+          <input type="text" class="form-control" placeholder="Category Name" [(ngModel)]="model.name" name="name">
+        </div>
+        <br />
+        <input class="form-control" rows="3" placeholder="Name Ruby" [(ngModel)]="model.name_ruby" name="name_ruby">
+        <br />
+        <button *ngIf="!editing" type="submit" class="btn btn-primary btn-block">Add</button>
+        <button *ngIf="editing" type="submit" class="btn btn-warning btn-block">Update</button>
+      </div>
+    </form>
+  </div>
+
+
   <div *ngIf="getData">
     <div *ngIf="getData.result">
       get sucess api
@@ -8,8 +26,6 @@
         </li>
         <li>
           name ruby:  {{category.name_ruby}}
-        </li><li>
-          name ruby:  {{category._id}}
         </li>
         <button class="btn btn-danger" (click)="deleteCategory(category._id)">
             Delete Category here {{category.id}}
@@ -18,8 +34,5 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-info" (click)="postCategory()">
-    Post Data to API
-  </button>
 </ul>
 
