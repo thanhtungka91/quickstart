@@ -22,15 +22,28 @@ var HttpComponent = (function () {
     HttpComponent.prototype.ngOnInit = function () {
         this.getCategories();
     };
+    // list all category
     HttpComponent.prototype.getCategories = function () {
         var _this = this;
         this.httpTest.getCategories()
             .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
     };
+    // create new category
     HttpComponent.prototype.postCategory = function () {
         var _this = this;
-        debugger;
         this.httpTest.postCategory(this.model)
+            .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
+    };
+    // edit, emit category when edit
+    // editCategory(){
+    //   // Emit edit event
+    //   // EmitterService.get(this.editId).emit(this.comment);
+    //   this.httpTest.editCategory();
+    // }
+    // update new category
+    HttpComponent.prototype.updateCategory = function () {
+        var _this = this;
+        this.httpTest.updateCategory(this.model)
             .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
     };
     // delete need to update in list -> take later

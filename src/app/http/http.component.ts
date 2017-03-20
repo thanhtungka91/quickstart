@@ -25,19 +25,38 @@ export class HttpComponent implements OnInit{
     this.getCategories();
   }
 
+  // list all category
   getCategories() {
     this.httpTest.getCategories()
       .subscribe(
         data => this.getData = data,
-        error =>  this.errorMessage = <any>error);
+        error =>  this.errorMessage = <any>error
+      );
   }
 
+  // create new category
   postCategory(){
-    debugger;
     this.httpTest.postCategory(this.model)
       .subscribe(
       data => this.getData = data,
-      error =>  this.errorMessage = <any>error);
+      error =>  this.errorMessage = <any>error
+      );
+  }
+
+  // edit, emit category when edit
+  // editCategory(){
+  //   // Emit edit event
+  //   // EmitterService.get(this.editId).emit(this.comment);
+  //   this.httpTest.editCategory();
+  // }
+
+  // update new category
+  updateCategory(){
+    this.httpTest.updateCategory(this.model)
+      .subscribe(
+        data => this.getData = data,
+        error => this.errorMessage = <any> error
+      );
   }
 
   // delete need to update in list -> take later

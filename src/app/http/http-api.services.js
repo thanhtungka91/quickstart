@@ -17,12 +17,13 @@ var HTTPTestService = (function () {
     function HTTPTestService(http_test) {
         this.http_test = http_test;
         // get current time
-        this.httpUrl = "http://localhost:8080/api/categories";
+        this.httpUrl = "http://138.197.79.103:8080/api/categories";
     }
     HTTPTestService.prototype.getCategories = function () {
         return this.http_test.get(this.httpUrl)
             .map(function (res) { return res.json(); });
     };
+    // create new category
     HTTPTestService.prototype.postCategory = function (body) {
         // create temp category object
         var category = JSON.stringify(body);
@@ -32,6 +33,16 @@ var HTTPTestService = (function () {
             .map(function (res) { return res.json(); });
         //   .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     };
+    // update category
+    HTTPTestService.prototype.updateCategory = function (body) {
+        var category = JSON.stringify(body);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        var editUrl = this.httpUrl + '/' + body['id'];
+        return this.http_test.put(editUrl, category, options)
+            .map(function (res) { return res.json; });
+    };
+    // delete category
     HTTPTestService.prototype.deleteCateory = function (id) {
         debugger;
         var deleteUrl = this.httpUrl + '/' + id;

@@ -14,23 +14,39 @@ export class HTTPTestService {
   }
   // get current time
 
-  private httpUrl = "http://localhost:8080/api/categories";
+  private httpUrl = "http://138.197.79.103:8080/api/categories";
 
   getCategories(){
     return this.http_test.get(this.httpUrl)
       .map(res => res.json());
   }
 
-  postCategory(body:Object){
+  // create new category
+
+  postCategory(body:Object) : Observable<Category[]>{
     // create temp category object
     let category = JSON.stringify(body);
 
-    let headers      = new Headers({ 'Content-Type': 'application/json' });
+    let headers       = new Headers({ 'Content-Type': 'application/json' });
     let options       = new RequestOptions({ headers: headers });
     return this.http_test.post(this.httpUrl, category, options)
       .map(res => res.json());
     //   .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
+
+  // update category
+
+  updateCategory(body:Object){
+    let category = JSON.stringify(body);
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let editUrl = this.httpUrl + '/' + body['id'];
+    return this.http_test.put(editUrl,category,options)
+      .map(res => res.json);
+  }
+
+  // delete category
 
   deleteCateory(id:string): Observable<any>{
     debugger;

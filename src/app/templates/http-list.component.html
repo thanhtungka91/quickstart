@@ -1,0 +1,25 @@
+<ul class="heroes">
+  <!--form create new category-->
+
+  <div *ngIf="getData">
+    <div *ngIf="getData.result">
+      get sucess api
+      <div *ngFor="let category of getData.categories ">
+        <li>
+          name : {{category.name}}
+        </li>
+        <li>
+          name ruby:  {{category.name_ruby}}
+        </li>
+        <button class="btn btn-info" (click)="editCategory()">
+          <span class="glyphicon glyphicon-edit"> EditCategory</span>
+        </button>
+        <button class="btn btn-danger" (click)="deleteCategory(category._id)">
+          <span class="glyphicon glyphicon-remove"> DeleteCategory</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+</ul>
+

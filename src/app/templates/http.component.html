@@ -27,9 +27,17 @@
         <li>
           name ruby:  {{category.name_ruby}}
         </li>
-        <button class="btn btn-danger" (click)="deleteCategory(category._id)">
-            Delete Category here {{category.id}}
+        <button class="btn btn-info" (click)="editCategory()">
+          <span class="glyphicon glyphicon-edit"> EditCategory</span>
         </button>
+        <button class="btn btn-danger" (click)="deleteCategory(category._id)">
+          <span class="glyphicon glyphicon-remove"> DeleteCategory</span>
+        </button>
+
+        <!--<button class="btn btn-danger" (click)="deleteCategory(category._id)">-->
+            <!--Delete Category {{category.id}}-->
+        <!--</button>-->
+
 
       </div>
     </div>
