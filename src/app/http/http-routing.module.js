@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var http_component_1 = require('./http.component');
 var heroesroutes = [
-    { path: 'httpApi', component: http_component_1.HttpComponent }
+    { path: 'categories', component: http_component_1.HttpComponent }
 ];
 var HttpRoutingModule = (function () {
     function HttpRoutingModule() {

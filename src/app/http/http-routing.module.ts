@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpComponent }      from './http.component';
 
 const heroesroutes: Routes = [
-  { path: 'httpApi',     component: HttpComponent }
+  { path: 'categories',     component: HttpComponent }
 ];
 
 @NgModule({

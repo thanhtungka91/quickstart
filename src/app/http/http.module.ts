@@ -7,6 +7,8 @@ import {HttpComponent}    from './http.component';
 import { HttpRoutingModule } from './http-routing.module';
 import { HTTPTestService } from "./http-api.services";
 import {BrowserModule} from "@angular/platform-browser";
+import {HttpListComponent} from "./listCategories/http-list.component";
+import {HttpAddComponent} from "./addCategory/http-add.component";
 
 @NgModule({
   imports: [
@@ -16,7 +18,9 @@ import {BrowserModule} from "@angular/platform-browser";
     HttpRoutingModule
   ],
   declarations: [
-    HttpComponent
+    HttpComponent,
+    HttpListComponent,
+    HttpAddComponent
   ],
   providers: [ HTTPTestService ]
 })

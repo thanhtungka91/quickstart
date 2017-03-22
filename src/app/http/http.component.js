@@ -10,55 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 require('rxjs/add/operator/switchMap');
 var core_1 = require('@angular/core');
-var http_api_services_1 = require("./http-api.services");
-var category_1 = require('../models/category');
 var HttpComponent = (function () {
-    function HttpComponent(httpTest) {
-        this.httpTest = httpTest;
-        this.title = 'Tour of Heroes';
-        this.model = new category_1.Category('', '');
-        this.editing = false;
+    function HttpComponent() {
     }
-    HttpComponent.prototype.ngOnInit = function () {
-        this.getCategories();
-    };
-    // list all category
-    HttpComponent.prototype.getCategories = function () {
-        var _this = this;
-        this.httpTest.getCategories()
-            .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
-    };
-    // create new category
-    HttpComponent.prototype.postCategory = function () {
-        var _this = this;
-        this.httpTest.postCategory(this.model)
-            .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
-    };
-    // edit, emit category when edit
-    // editCategory(){
-    //   // Emit edit event
-    //   // EmitterService.get(this.editId).emit(this.comment);
-    //   this.httpTest.editCategory();
-    // }
-    // update new category
-    HttpComponent.prototype.updateCategory = function () {
-        var _this = this;
-        this.httpTest.updateCategory(this.model)
-            .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
-    };
-    // delete need to update in list -> take later
-    HttpComponent.prototype.deleteCategory = function (id) {
-        var _this = this;
-        // debugger;
-        this.httpTest.deleteCateory(id)
-            .subscribe(function (data) { return _this.getData = data; }, function (error) { return _this.errorMessage = error; });
-    };
     HttpComponent = __decorate([
         core_1.Component({
-            templateUrl: 'app/templates/http.component.html',
+            templateUrl: '../../../app/http/http-index.component.html',
             styleUrls: ['app/public/http.component.css'],
         }), 
-        __metadata('design:paramtypes', [http_api_services_1.HTTPTestService])
+        __metadata('design:paramtypes', [])
     ], HttpComponent);
     return HttpComponent;
 }());

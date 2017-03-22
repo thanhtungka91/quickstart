@@ -1,0 +1,17 @@
+<ul class="heroes">
+  <div class="card-body">
+    <form (ngSubmit)="postCategory()">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Category Name" [(ngModel)]="model.name" name="name">
+        </div>
+        <br />
+        <input class="form-control" rows="3" placeholder="Name Ruby" [(ngModel)]="model.name_ruby" name="name_ruby">
+        <br />
+        <button *ngIf="!editing" type="submit" class="btn btn-primary btn-block">Add</button>
+        <button *ngIf="editing" type="submit" class="btn btn-warning btn-block">Update</button>
+      </div>
+    </form>
+  </div>
+</ul>
+

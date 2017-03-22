@@ -15,6 +15,8 @@ var http_component_1 = require('./http.component');
 var http_routing_module_1 = require('./http-routing.module');
 var http_api_services_1 = require("./http-api.services");
 var platform_browser_1 = require("@angular/platform-browser");
+var http_list_component_1 = require("./listCategories/http-list.component");
+var http_add_component_1 = require("./addCategory/http-add.component");
 var HttpApiModule = (function () {
     function HttpApiModule() {
     }
@@ -27,7 +29,9 @@ var HttpApiModule = (function () {
                 http_routing_module_1.HttpRoutingModule
             ],
             declarations: [
-                http_component_1.HttpComponent
+                http_component_1.HttpComponent,
+                http_list_component_1.HttpListComponent,
+                http_add_component_1.HttpAddComponent
             ],
             providers: [http_api_services_1.HTTPTestService]
         }), 
